@@ -1,5 +1,5 @@
 
-const BlogList = ({blogs, title, handleDelete}) =>{
+const BlogList = ({blogs, title}) =>{
     // so you know how we see that we are basically getting pieces of props below, well we can also do decontructoring where we can breakit all apart like above
 //const BlogList = (props) => {
     // const blogs = props.blogs;
@@ -15,7 +15,6 @@ const BlogList = ({blogs, title, handleDelete}) =>{
         <div className="blog-preview" key = {blog.id}>
             <h2>{blog.title}</h2>
             <p>Written by {blog.author}</p>
-            <button onClick={() => handleDelete(blog.id)}>Delete Blog</button>
         </div>
         ))} 
     </div>
