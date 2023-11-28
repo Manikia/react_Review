@@ -22,7 +22,7 @@ const Home = () => {
             {/* in here we are passing props and in the other file where we want to grab the call we will reference props and assign it to blobs */}
 
             {/* bottom wont run until we have the data since when we run first it might give a null error */}
-            {blogs && <BlogList blogs={blogs} title="all blogs"/>}
+            {blogs && <BlogList blogs={blogs}/>}
 
             {/* <button onClick = {() => setName('luigi')}>Change name</button>
             <p>{name}</p> */}

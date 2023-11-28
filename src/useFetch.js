@@ -33,9 +33,9 @@ const useFetch = (url) => {
     
     useEffect(() => {
         //to view the loading for a bit we can use setTimeout
-
+        const abortCont = new AbortController();
         setTimeout(() => {
-            fetch(url).then(response => {
+            fetch(url, {signal: abortCont.signal}).then(response => {
                 if(!response.ok){
                     throw Error('Could not fetch data for that resource')
                 }
@@ -48,11 +48,20 @@ const useFetch = (url) => {
             })
             //this will catch a network error and fire up
             .catch(err => {
-                setIsPending(false)
-                setError(err.message)
-                setError(null)
+                if(err.name === 'AbortError'){
+                    console.log('Fetch Aborted')
+                }
+                else{
+                    setIsPending(false)
+                    setError(err.message)
+                }
             })
             }, [1000])
+
+            //we get an internal error stating that a react state update on an unmounted component cant be performed and this is because we switch through our navs fast but to avoid this we add a return and the rest below and using an abort controller
+            return() => abortCont.abort();
+            //the above aborts every fetch and pauses it instead of trying to access it every time
+
         //this function runs after evey rerender
         // console.log('user effect ran')
         // console.log(name);

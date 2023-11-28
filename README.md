@@ -4,3 +4,5 @@
 
 code reference: https://github.com/iamshaunjp/Complete-React-Tutorial/blob/lesson-16/dojo-blog/data/db.json
 
+- install react router
+- npm install react-router-dom@5
