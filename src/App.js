@@ -3,6 +3,7 @@ import Navbar from './navbar';
 import Home from './home';
 import Create from './Create';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import BlogDetails from './BlogDetails';
 
 function App() {
   // //creatina  variable to output
@@ -22,6 +23,10 @@ function App() {
             </Route>
             <Route exact path="/create">
               <Create />
+            </Route>
+            {/* we can also make a changeable route like if we access a specific id by doing the below and use a hook under blog deatails page*/}
+            <Route exact path="/blogs/:id">
+              <BlogDetails />
             </Route>
           </Switch>
           {/* =<Home/> */}

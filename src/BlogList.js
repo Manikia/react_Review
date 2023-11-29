@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom"
 
 const BlogList = ({blogs, title}) =>{
     // so you know how we see that we are basically getting pieces of props below, well we can also do decontructoring where we can breakit all apart like above
@@ -13,8 +14,11 @@ const BlogList = ({blogs, title}) =>{
         {blogs.map((blog) => (
             
         <div className="blog-preview" key = {blog.id}>
-            <h2>{blog.title}</h2>
-            <p>Written by {blog.author}</p>
+            {/* the link captures the id and redirects to another page when clicking on them */}
+            <Link to = {`/blogs/${blog.id}`}>
+                <h2>{blog.title}</h2>
+                <p>Written by {blog.author}</p>
+            </Link>
         </div>
         ))} 
     </div>
