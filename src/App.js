@@ -4,6 +4,7 @@ import Home from './home';
 import Create from './Create';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import BlogDetails from './BlogDetails';
+import NotFound from './NotFound';
 
 function App() {
   // //creatina  variable to output
@@ -27,6 +28,9 @@ function App() {
             {/* we can also make a changeable route like if we access a specific id by doing the below and use a hook under blog deatails page*/}
             <Route exact path="/blogs/:id">
               <BlogDetails />
+            </Route>
+            <Route path="*">
+              <NotFound />
             </Route>
           </Switch>
           {/* =<Home/> */}
